@@ -11,7 +11,12 @@
 
 function continueGame(){
     const alphabet = getARandomAlphabet();
-    console.log('your random alphabet is' , alphabet)
+    console.log('your random alphabet is' , alphabet);
+    // set random alphabet show in the screen
+    const currentAlphabet = document.getElementById('show-letter');
+    currentAlphabet.innerText = alphabet;
+    // set kybord background color
+    setkeyboardBackgroundById(alphabet);
 }
 
 function play(){

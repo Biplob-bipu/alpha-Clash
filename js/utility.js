@@ -8,6 +8,11 @@ function showElementById(elementId){
     const element = document.getElementById(elementId);
     element.classList.remove('hidden');
 }
+// setkeyboard background color
+function setkeyboardBackgroundById(elementId){
+    const element = document.getElementById(elementId);
+    element.classList.add('bg-orange-400');
+}
 
 function getARandomAlphabet(){
     const alphabetString = 'abcdefghijklmnopqrstuvwxyz';
