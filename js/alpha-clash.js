@@ -26,3 +26,24 @@ function play(){
     showElementById('play-ground');
     continueGame();
 }
+
+function keyboardBtnPress(event){
+   const playerPressed = event.key;
+   console.log('player pressed' , playerPressed);
+   // get the expected to press
+   const currentAlphabetElement = document.getElementById('show-letter');
+   const currentAlphabet = currentAlphabetElement.innerText;
+   const expectedAlphabet = currentAlphabet.toLowerCase();
+   console.log(playerPressed,expectedAlphabet); 
+
+//    check matched or not
+if(playerPressed === expectedAlphabet){
+    console.log('you got a point')
+}
+else{
+    console.log('you missed')
+}
+
+}
+// capture keyboard key press
+document.addEventListener('keyup' , keyboardBtnPress)
