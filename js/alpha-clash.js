@@ -1,13 +1,3 @@
-// function play(){
-//     // hide homeSection
-//     const homeSection = document.getElementById('home-screen');
-//     homeSection.classList.add('hidden');
-    
-//     // display playground
-//     const playGround = document.getElementById('play-ground');
-//     playGround.classList.remove('hidden')
-// }
-
 
 function continueGame(){
     const alphabet = getARandomAlphabet();
@@ -39,10 +29,31 @@ function keyboardBtnPress(event){
     // check right or wrong key pressed
     if(playerPressed === expectedAlphabet){
         console.log('point paiso mia');
+
+        // score update
+        // get the current score
+        const currentScoreElement = document.getElementById('current-score');
+        const currentScoreText = currentScoreElement.innerText;
+        const currentScore = parseInt(currentScoreText);
+        console.log(currentScore);
+        // increase the score
+        const newScore = currentScore +1;
+        // show the update score
+        currentScoreElement.innerText = newScore;
+
         // console.log('thik chapso', expectedAlphabet);
         removeBackgroundColorById(expectedAlphabet);
         continueGame();
         // removeBackgroundColorById(expectedAlphabet);
+    }
+    else{
+        const currentLifeElement = document.getElementById('current-life');
+        const currentLifeText = currentLifeElement.innerText;
+        const currentLife = parseInt(currentLifeText);
+        // lose the life
+        const newLife = currentLife -1;
+        //show the update life
+        currentLifeElement.innerText = newLife;
     }
 
 }
