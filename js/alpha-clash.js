@@ -35,14 +35,15 @@ function keyboardBtnPress(event){
    const currentAlphabet = currentAlphabetElement.innerText;
    const expectedAlphabet = currentAlphabet.toLowerCase();
    console.log(playerPressed,expectedAlphabet); 
-
-//    check matched or not
-if(playerPressed === expectedAlphabet){
-    console.log('you got a point')
-}
-else{
-    console.log('you missed')
-}
+ 
+    // check right or wrong key pressed
+    if(playerPressed === expectedAlphabet){
+        console.log('point paiso mia');
+        // console.log('thik chapso', expectedAlphabet);
+        removeBackgroundColorById(expectedAlphabet);
+        continueGame();
+        // removeBackgroundColorById(expectedAlphabet);
+    }
 
 }
 // capture keyboard key press
