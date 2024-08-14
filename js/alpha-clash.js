@@ -14,7 +14,18 @@ function play(){
     hideElementById('home-screen');
     
     showElementById('play-ground');
+    hideElementById('final-score');
+    //reset life and point
+    setTExtElementValuebyId('current-life', 5);
+    setTExtElementValuebyId('current-score', 0);
+    
     continueGame();
+}
+
+function gameOver(){
+    hideElementById('play-ground');
+    showElementById('final-score');
+
 }
 
 function keyboardBtnPress(event){
@@ -30,16 +41,23 @@ function keyboardBtnPress(event){
     if(playerPressed === expectedAlphabet){
         console.log('point paiso mia');
 
+        const currentScore = getTextElementValueById('current-score');
+        const updatedScore = currentScore + 1;
+        setTExtElementValuebyId('current-score', updatedScore);
+
         // score update
         // get the current score
-        const currentScoreElement = document.getElementById('current-score');
-        const currentScoreText = currentScoreElement.innerText;
-        const currentScore = parseInt(currentScoreText);
-        console.log(currentScore);
+        // const currentScoreElement = document.getElementById('current-score');
+        // const currentScoreText = currentScoreElement.innerText;
+        // const currentScore = parseInt(currentScoreText);
+        // console.log(currentScore);
+       
+
+
         // increase the score
-        const newScore = currentScore +1;
-        // show the update score
-        currentScoreElement.innerText = newScore;
+        // const newScore = currentScore +1;
+        // // show the update score
+        // currentScoreElement.innerText = newScore;
 
         // console.log('thik chapso', expectedAlphabet);
         removeBackgroundColorById(expectedAlphabet);
@@ -47,13 +65,21 @@ function keyboardBtnPress(event){
         // removeBackgroundColorById(expectedAlphabet);
     }
     else{
-        const currentLifeElement = document.getElementById('current-life');
-        const currentLifeText = currentLifeElement.innerText;
-        const currentLife = parseInt(currentLifeText);
-        // lose the life
-        const newLife = currentLife -1;
-        //show the update life
-        currentLifeElement.innerText = newLife;
+
+        const currentLife = getTextElementValueById('current-life');
+        const updatedLife = currentLife -1;
+        setTExtElementValuebyId('current-life' , updatedLife);
+
+        if (updatedLife === 0){
+            gameOver();
+        }
+        // const currentLifeElement = document.getElementById('current-life');
+        // const currentLifeText = currentLifeElement.innerText;
+        // const currentLife = parseInt(currentLifeText);
+        // // lose the life
+        // const newLife = currentLife -1;
+        // //show the update life
+        // currentLifeElement.innerText = newLife;
     }
 
 }
