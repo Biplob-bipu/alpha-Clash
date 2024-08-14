@@ -16,7 +16,7 @@ function play(){
     showElementById('play-ground');
     hideElementById('final-score');
     //reset life and point
-    setTExtElementValuebyId('current-life', 5);
+    setTExtElementValuebyId('current-life', 3);
     setTExtElementValuebyId('current-score', 0);
     
     continueGame();
@@ -25,7 +25,15 @@ function play(){
 function gameOver(){
     hideElementById('play-ground');
     showElementById('final-score');
-
+    // show lastscore
+    const lastScore = getTextElementValueById('current-score')
+    console.log(lastScore);
+    setTExtElementValuebyId('last-score',lastScore);
+    
+    //clear the keyboard background
+     const currentAlphabet = getElementTextById('show-letter');
+    //  console.log(currentAlphabet)
+     removeBackgroundColorById(currentAlphabet);
 }
 
 function keyboardBtnPress(event){
